@@ -1,0 +1,3 @@
+[submodule "themes/hugo-cookbook"]
+	path = themes/hugo-cookbook
+	url = https://github.com/deranjer/hugo-cookbook
