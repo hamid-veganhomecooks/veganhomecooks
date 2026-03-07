@@ -3,7 +3,7 @@ title: "Okara Nuggets"
 date: 2026-02-19
 author: "comrade bulba"
 tags: ["seitan", "nuggets", "okara", "protein"]
-recipe_image: "/images/okara-nuggets.png"
+recipe_image: "/images/okara-nuggets.jpg"
 ---
 
 
