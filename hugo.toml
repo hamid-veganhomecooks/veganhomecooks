@@ -1,0 +1,8 @@
+baseURL = "https://veganhomecooks.online/"
+languageCode = "en-us"
+title = "Vegan Home Cooks"
+theme = "hugo-cookbook"
+
+[params]
+  description = "A community recipe book for vegan home cooks"
+  author = "Vegan Home Cooks Community"
