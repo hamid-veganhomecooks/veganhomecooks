@@ -6,3 +6,22 @@ theme = "hugo-cookbook"
 [params]
   description = "A community recipe book for vegan home cooks"
   author = "Vegan Home Cooks Community"
+
+# Print output just creates a special route for a print view
+[outputs]
+    home = ["html", "rss", "json"]
+    page = ["html", "print"]
+
+  
+# The settings for the print format
+[outputFormats]
+  [outputFormats.print]
+    name = "print"
+    mediaType = "text/html"
+    baseName = "print"
+    isPlainText = false
+    rel = "print"
+    isHTML = true
+    noUgly = true
+    permalinkable = true
+    path = "print"
