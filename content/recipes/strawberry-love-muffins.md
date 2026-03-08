@@ -1,7 +1,7 @@
 ---
 title: "Strawberry Love Muffins"
 date: 2024-01-01
-author: "hamid"
+author: "madi/hamid"
 tags: ["baking", "breakfast", "muffins"]
 servings: 12
 prepTime: "15 minutes"
@@ -11,14 +11,16 @@ recipe_image: "/images/love-muffins.png"
 
 ## Ingredients
 
-- 2 cups all-purpose flour
-- 1 cup fresh strawberries, chopped
-- 3/4 cup sugar
-- 1/3 cup melted coconut oil
-- 1 cup plant milk
+- 1.5 cups all-purpose flour
+- 1/2 cup granulated sugar
+- 1 tsp baking powder
+- 1 tsp baking soda
+- 1/4 tsp salt
+- 1/2 cup unsweetened plant milk
+- 1/4 cup lemon juice
+- 1/2 cup olive oil 
 - 1 tsp vanilla extract
-- 2 tsp baking powder
-- 1/2 tsp salt
+- 1 cup fresh strawberries, chopped
 
 ## Instructions
 
