@@ -18,6 +18,21 @@ fileName = "/images/logo3.png"
 height =  50
 width = 500
 
+[params.favicon]
+fileName = "/images/favicon.png" #your favicon here if you wish to change it.
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    pre = "fas fa-home" #icon, change if you would prefer a different icon
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Categories" # change to w/e you want, tags or categories works best
+    pre = "fas fa-tags" #icon, change if you would prefer a different icon
+    url = "/tags/"
+    weight = 2
+
 # Print output just creates a special route for a print view
 [outputs]
   home = ["HTML", "RSS", "JSON"]
