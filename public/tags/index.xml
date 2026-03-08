@@ -37,6 +37,27 @@
       <description></description>
     </item>
     <item>
+      <title>Fermented</title>
+      <link>http://localhost:1313/tags/fermented/</link>
+      <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/fermented/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lentils</title>
+      <link>http://localhost:1313/tags/lentils/</link>
+      <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/lentils/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tempeh</title>
+      <link>http://localhost:1313/tags/tempeh/</link>
+      <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tempeh/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Baking</title>
       <link>http://localhost:1313/tags/baking/</link>
       <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>

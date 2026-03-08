@@ -3,7 +3,7 @@ title: "Lentil Tempeh"
 date: 2026-01-07
 author: "Beanmilker"
 tags: ["tempeh", "fermented", "lentils", "protein"]
-recipe_image: "/images/lentil-tempeh-1.png"
+recipe_image: "/images/lentil-tempeh-1.jpg"
 ---
 
 ## Ingredients
