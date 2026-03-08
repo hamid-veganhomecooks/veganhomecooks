@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Protein on Vegan Home Cooks</title>
-    <link>http://localhost:1313/tags/protein/</link>
-    <description>Recent content in Protein on Vegan Home Cooks</description>
+    <title>Tempeh on Vegan Home Cooks</title>
+    <link>http://localhost:1313/tags/tempeh/</link>
+    <description>Recent content in Tempeh on Vegan Home Cooks</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/protein/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Okara Nuggets</title>
-      <link>http://localhost:1313/okara-nuggets/</link>
-      <pubDate>Thu, 19 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/okara-nuggets/</guid>
-      <description>&lt;p&gt;Measurements will be added next time these are made. Here&amp;rsquo;s a quick summary for now.&lt;/p&gt;&#xA;&lt;h2 id=&#34;ingredients&#34;&gt;Ingredients&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Wet okara (cooked okara works well, but raw is fine too since these get cooked a lot — if your okara is dry, add any liquid like plant milk, broth, tomato product, etc.)&lt;/li&gt;&#xA;&lt;li&gt;Vital wheat gluten (VWG)&lt;/li&gt;&#xA;&lt;li&gt;Flour&lt;/li&gt;&#xA;&lt;li&gt;Chick&amp;rsquo;n bouillon (or any bouillon, or whatever spices you want)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;instructions&#34;&gt;Instructions&lt;/h2&gt;&#xA;&lt;h3 id=&#34;make-the-dough&#34;&gt;Make the dough&lt;/h3&gt;&#xA;&lt;p&gt;Use a food processor to blend for 30 seconds or until well combined. The dough should clump up and come away from the walls of the food processor, like seitan.&lt;/p&gt;</description>
-    </item>
+    <lastBuildDate>Wed, 07 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tempeh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lentil Tempeh</title>
       <link>http://localhost:1313/lentil-tempeh/</link>
