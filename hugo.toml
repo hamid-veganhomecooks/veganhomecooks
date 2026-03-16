@@ -14,9 +14,9 @@ defaultImageHeight = 512 #default recipe image height
 defaultImageWidth = 512 # default recipe image width
 
 [params.logo]
-fileName = "/images/logo3.png"
-height =  25
-width = 125
+fileName = "/images/logo_svg.svg"
+height =  50
+width = 250
 
 [params.favicon]
 fileName = "/images/favicon.png" #your favicon here if you wish to change it.
