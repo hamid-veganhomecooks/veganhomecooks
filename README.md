@@ -1,7 +1,7 @@
 # veganhomecooks
-hugo-cookbook recipe repository for veganhomecooks.online
+hugo-cookbook recipe repository for veganhomecooks.online, a recipe book for the VHC community
 
-3. Where to find us
+Where to find us
 We want to be where you are most comfortable.
 
 Discord: [Join the chat](https://discord.gg/DBXGfxweAr)
