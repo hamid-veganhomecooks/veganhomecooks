@@ -2,7 +2,7 @@
 title: "Vegan Home Cooks"
 ---
 
-Welcome to the **Vegan Home Cooks** community cookbook! These recipes come straight from our community of plant-based cooks. Whether you're a lifelong vegan or just exploring, you'll find something delicious here.
+Welcome to the **Vegan Home Cooks** community cookbook! These recipes come straight from our community of plant-based cooks.
 
 Come join the conversation and share your own creations:
 
