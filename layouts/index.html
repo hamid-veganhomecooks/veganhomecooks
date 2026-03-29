@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="section">
+
+  {{ with .Content }}
+    <div class="content" style="margin-bottom: 2rem; font-size: 1.2rem;">
+      {{ . | safeHTML }}
+    </div>
+  {{ end }}
+
+  <div class="columns is-multiline">
+    {{ range $index, $element := .Site.RegularPages }}
+      <div class="column is-one-quarter">
+        {{ partial "summary.html" . }}
+      </div>
+    {{ end }}
+  </div>
+
+</div>
+{{ end }}
