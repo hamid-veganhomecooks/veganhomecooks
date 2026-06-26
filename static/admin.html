@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VHC Admin — New Recipe</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f5f5f0;
+      color: #222;
+      padding: 2rem;
+    }
+    h1 { font-size: 1.5rem; margin-bottom: 1.5rem; color: #2d6a4f; }
+    form { max-width: 700px; display: flex; flex-direction: column; gap: 1.2rem; }
+    label { font-weight: 600; font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.3rem; }
+    input, textarea, select {
+      font-family: inherit;
+      font-size: 1rem;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: white;
+      width: 100%;
+    }
+    textarea { resize: vertical; min-height: 300px; font-family: monospace; font-size: 0.9rem; }
+    button {
+      padding: 0.75rem 1.5rem;
+      background: #2d6a4f;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+    button:disabled { background: #aaa; cursor: not-allowed; }
+    #status {
+      padding: 1rem;
+      border-radius: 6px;
+      display: none;
+      margin-top: 1rem;
+      max-width: 700px;
+    }
+    #status.success { background: #d8f3dc; color: #1b4332; display: block; }
+    #status.error { background: #ffe5e5; color: #7f1d1d; display: block; }
+    #login-screen {
+      max-width: 360px;
+      margin: 4rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    #login-screen h2 { margin-bottom: 1rem; color: #2d6a4f; }
+    #login-screen input { margin-bottom: 1rem; }
+    #login-screen button { width: 100%; justify-content: center; }
+    #app { display: none; }
+  </style>
+</head>
+<body>
+
+  <div id="login-screen">
+    <h2>VHC Admin</h2>
+    <label>Password
+      <input type="password" id="password-input" placeholder="Enter admin password" />
+    </label>
+    <button onclick="handleLogin()">Log In</button>
+    <div id="login-error" style="color:#b91c1c; margin-top:0.75rem; font-size:0.9rem;"></div>
+  </div>
+
+  <div id="app">
+    <h1>🌿 New Recipe</h1>
+    <form id="recipe-form">
+      <label>Title *
+        <input type="text" id="title" required placeholder="e.g. Smoky Black Bean Tacos" />
+      </label>
+      <label>Date *
+        <input type="date" id="date" required />
+      </label>
+      <label>Author
+        <input type="text" id="author" placeholder="e.g. Hamid" />
+      </label>
+      <label>Tags (comma-separated)
+        <input type="text" id="tags" placeholder="e.g. tacos, mexican, quick" />
+      </label>
+      <label>Recipe Photo
+        <input type="file" id="image" accept="image/*" />
+      </label>
+      <label>Recipe Body (Markdown) *
+        <textarea id="body" required placeholder="Write your recipe here in markdown..."></textarea>
+      </label>
+      <button type="submit" id="submit-btn">Publish Recipe</button>
+    </form>
+    <div id="status"></div>
+  </div>
+
+  <script>
+    const WORKER_URL = "https://vhc-admin-worker.mbenhuri.workers.dev";
+    let adminPassword = "";
+
+    // Set today's date as default
+    document.getElementById("date").valueAsDate = new Date();
+
+    async function handleLogin() {
+      const input = document.getElementById("password-input").value;
+      if (!input) return;
+
+      // Test the password against the worker
+      const res = await fetch(WORKER_URL, {
+        method: "POST",
+        headers: { "X-Admin-Password": input },
+        body: new FormData(),
+      });
+
+      if (res.status === 401) {
+        document.getElementById("login-error").textContent = "Incorrect password.";
+        return;
+      }
+
+      adminPassword = input;
+      document.getElementById("login-screen").style.display = "none";
+      document.getElementById("app").style.display = "block";
+    }
+
+    document.getElementById("password-input").addEventListener("keydown", e => {
+      if (e.key === "Enter") handleLogin();
+    });
+
+    document.getElementById("recipe-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById("submit-btn");
+      const status = document.getElementById("status");
+      btn.disabled = true;
+      btn.textContent = "Publishing...";
+      status.className = "";
+      status.style.display = "none";
+
+      const formData = new FormData();
+      formData.append("title", document.getElementById("title").value);
+      formData.append("date", document.getElementById("date").value);
+      formData.append("author", document.getElementById("author").value);
+      formData.append("tags", document.getElementById("tags").value);
+      formData.append("body", document.getElementById("body").value);
+      const imageFile = document.getElementById("image").files[0];
+      if (imageFile) formData.append("image", imageFile);
+
+      try {
+        const res = await fetch(WORKER_URL, {
+          method: "POST",
+          headers: { "X-Admin-Password": adminPassword },
+          body: formData,
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          status.className = "success";
+          status.textContent = `✅ Recipe published! File: content/recipes/${data.slug}.md — your site will rebuild in about a minute.`;
+          document.getElementById("recipe-form").reset();
+          document.getElementById("date").valueAsDate = new Date();
+        } else {
+          status.className = "error";
+          status.textContent = `❌ Error: ${data.error}${data.detail ? " — " + data.detail : ""}`;
+        }
+      } catch (err) {
+        status.className = "error";
+        status.textContent = `❌ Network error: ${err.message}`;
+      }
+
+      btn.disabled = false;
+      btn.textContent = "Publish Recipe";
+    });
+  </script>
+</body>
+</html>
