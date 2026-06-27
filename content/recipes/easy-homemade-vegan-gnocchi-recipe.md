@@ -1,7 +1,7 @@
 ---
 title: "Easy Homemade Vegan Gnocchi Recipe"
 date: 2026-06-05
-author: "madi, Eva "The Curious Chickpea" www.thecuriouschickpea.com"
+author: "madi, Eva (The Curious Chickpea www.thecuriouschickpea.com)"
 tags: ["easy", "gnocchi", "italian"]
 recipe_image: "https://assets.veganhomecooks.online/recipe-images/1782566606594-IMG_5651.jpg"
 ---
