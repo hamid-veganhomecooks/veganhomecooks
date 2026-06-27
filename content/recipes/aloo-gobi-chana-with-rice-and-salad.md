@@ -83,4 +83,3 @@ For years, I only had a **single burner**, so I’d:
 
 ---
 
-**What do you throw in your lazy curry?** Let me know in the comments! 👇
