@@ -23,12 +23,13 @@ Saute it all in the pan
 Stir and Cover it for a few minutes
 
 Add water, just enough to simmer veg in
+
 And add
 - your tofu or chickenless strips
 - green , red, yellow peppers (I put these on top and cover, so chicken and previous veg will cook and peppers don't over cook.
 - if you have some premade thai red curry paste you can add a table spoon.  If not this link is a good one for homemade paste...skip the shrimp paste.  https://www.allrecipes.com/recipe/239501/thai-red-curry-paste/
 
--Add fresh corriander sprigs and basil leaves
+- Add fresh corriander sprigs and basil leaves
 
 Simmer and check and stir, when almost ready add
 
