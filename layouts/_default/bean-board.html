@@ -1,0 +1,68 @@
+{{ define "main" }}
+<div class="section">
+  <div class="container">
+    <h1 class="title">{{ .Title }}</h1>
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+    {{ $roster := .Site.Data.beans }}
+
+    {{ $uniqueBeans := slice }}
+    {{ range $roster }}
+      {{ if not (in $uniqueBeans .bean) }}
+        {{ $uniqueBeans = $uniqueBeans | append .bean }}
+      {{ end }}
+    {{ end }}
+
+    {{ $leaderboard := slice }}
+    {{ range $uniqueBeans }}
+      {{ $bean := . }}
+      {{ $count := 0 }}
+      {{ range $roster }}
+        {{ if eq .bean $bean }}{{ $count = add $count 1 }}{{ end }}
+      {{ end }}
+      {{ $leaderboard = $leaderboard | append (dict "bean" $bean "count" $count) }}
+    {{ end }}
+    {{ $leaderboard = sort $leaderboard "count" "desc" }}
+
+    <h2 class="title is-4">Bean Leadership</h2>
+    <table class="table is-fullwidth is-striped">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Bean</th>
+          <th>Votes</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range $index, $entry := $leaderboard }}
+        <tr>
+          <td>{{ add $index 1 }}{{ if eq $index 0 }} 🏆{{ end }}</td>
+          <td>{{ $entry.bean }}</td>
+          <td>{{ $entry.count }}</td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table>
+
+    <h2 class="title is-4">Full Roster</h2>
+    <table class="table is-fullwidth is-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Favorite Bean</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ range $roster }}
+        <tr>
+          <td>{{ .name }}</td>
+          <td>{{ .bean }}</td>
+        </tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{ end }}
