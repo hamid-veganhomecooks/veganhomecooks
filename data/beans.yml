@@ -1,0 +1,22 @@
+# Bean Board roster.
+#
+# Each entry is one Discord member's answer to "what's your favorite bean?"
+# `joined` is optional but powers future stats (e.g. join-time vs. bean
+# correlations) - use RFC3339 with an explicit timezone offset when known.
+#
+# - name: "Display name or nickname"
+#   bean: "Favorite bean"
+#   joined: 2026-01-10T14:32:00-05:00
+
+- name: "Hamid"
+  bean: "Chickpea"
+  joined: 2025-11-02T17:03:00-05:00
+- name: "Ashleigh"
+  bean: "Black Bean"
+  joined: 2025-11-14T20:11:00-05:00
+- name: "Javant"
+  bean: "Kidney Bean"
+  joined: 2025-12-01T09:45:00-05:00
+- name: "Dave"
+  bean: "Chickpea"
+  joined: 2025-12-20T16:20:00-05:00
