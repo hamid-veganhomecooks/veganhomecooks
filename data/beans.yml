@@ -21,9 +21,11 @@
   joined: 2024-08-31T19:28:00-05:00
 - name: "cosmicSans"
   bean: "Chickpea"
+  bean2: "Soy"
   joined: 2024-09-02T17:09:00-05:00
 - name: "savome"
   bean: "Chickpea"
+  bean2: "Soy"
   joined: 2024-09-02T17:13:00-05:00
 - name: "grocerybird"
   bean: "Lentil"
@@ -98,12 +100,14 @@
   joined: 2024-12-18T08:30:00-05:00
 - name: "Pretzel"
   bean: "Black Eyed Peas"
+  bean2: "Chickpea"
   joined: 2024-12-18T10:37:00-05:00
 - name: "thekwf"
   bean: "Black Eyed Peas"
   joined: 2024-12-19T21:04:00-05:00
 - name: "mattos"
   bean: "Chickpea"
+  bean2: "Soy"
   joined: 2024-12-19T09:54:00-05:00
 - name: "unpractical sheeps"
   bean: "Black Eyed Peas"
@@ -128,6 +132,7 @@
   joined: 2025-01-05T19:43:00-05:00
 - name: "madi"
   bean: "Navy Bean"
+  bean2: "Soy"
   joined: 2025-01-05T22:03:00-05:00
 - name: "AlpacaBowl"
   bean: "Black Bean"
@@ -170,6 +175,7 @@
   joined: 2025-03-22T16:02:00-05:00
 - name: "veggiebroth"
   bean: "Kidney Bean"
+  bean2: "Pinto"
   joined: 2025-03-23T16:21:00-05:00
 - name: "Eli Pregerson"
   bean: "Chickpea"
@@ -215,7 +221,8 @@
   bean: "Soy"
   joined: 2025-08-26T23:06:00-05:00
 - name: "J"
-  bean: "4 Bean Mix"
+  bean: "Soy"
+  bean2: "4 Bean Mix"
   joined: 2025-08-30T19:55:00-05:00
 - name: "𝖖𝖚𝖊𝖊𝖓"
   bean: "Chickpea"
@@ -270,6 +277,7 @@
   joined: 2025-12-10T13:19:00-05:00
 - name: "Eric"
   bean: "Kidney Bean"
+  bean2: "Pinto"
   joined: 2025-12-10T13:46:00-05:00
 - name: "flower"
   bean: "Cannellini"
@@ -282,6 +290,7 @@
   joined: 2025-12-13T16:25:00-05:00
 - name: "Mari"
   bean: "Black Bean"
+  bean2: "Chickpea"
   joined: 2025-12-13T18:18:00-05:00
 - name: "Marc"
   bean: "Pinto"
@@ -319,6 +328,7 @@
   joined: 2026-03-05T13:57:00-05:00
 - name: "Peluso"
   bean: "White Bean"
+  bean2: "Chickpea"
   joined: 2026-03-08T23:57:00-05:00
 - name: "angelnumber666"
   bean: "Cannellini"
@@ -330,7 +340,8 @@
   bean: "Peruano Bean"
   joined: 2026-04-05T16:59:00-05:00
 - name: "𑂐ꚳ㎰ꪭ"
-  bean: "Desi Chickpea"
+  bean: "Soy"
+  bean2: "Desi Chickpea"
   joined: 2026-04-05T21:16:00-05:00
 - name: "Artyfact"
   bean: "Black Eyed Peas"
@@ -362,3 +373,53 @@
 - name: "Liv"
   bean: "Pinto"
   joined: 2026-06-30T06:21:00-05:00
+- name: "Mink"
+  bean: "Soy"
+- name: "Soup"
+  bean: "Soy"
+- name: "l.e.from.the.voic"
+  bean: "Soy"
+- name: levelfivevegan
+  bean: "Soy"
+- name: "Roach"
+  bean: "Soy"
+- name: "ricetotherescue"
+  bean: "Soy"
+- name: "Hamid"
+  bean: "Kidney Bean"
+- name: "Lize"
+  bean: "Soy"
+- name: "Gomb"
+  bean: "Chickpea"
+- name: "Falafouffe"
+  bean: "Chickpea"
+- name: "mino"
+  bean: "Chickpea"
+- name: "mmori__"
+  bean: "Chickpea"
+- name: "Beans"
+  bean: "Fava Bean"
+- name: "howlin"
+  bean: "Fava Bean"
+- name: "Ashleigh"
+  bean: "Butter Bean"
+- name: "Scytherr"
+  bean: "Kidney Bean"
+- name: "Jerry The Goat"
+  bean: "Kidney Bean"
+- name: "meesh"
+  bean: "Kidney Bean"
+- name: "Train Dining Car"
+  bean: "Black Bean"
+- name: "Brad Beattie"
+  bean: "Black Bean"
+- name: "Sevda"
+  bean: "Black Bean"
+- name: "Arcane Potato"
+  bean: "Pinto"
+- name: "BonfireOfDreams"
+  bean: "Navy Bean"
+- name: "Wyrmwood"
+  bean: "Roman Bean"
+- name: "db"
+  bean: "Beluga Lentil"
