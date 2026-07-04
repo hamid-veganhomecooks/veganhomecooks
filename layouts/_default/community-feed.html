@@ -1,0 +1,123 @@
+{{ define "main" }}
+<div class="section">
+  <div class="container">
+    <h1 class="title">{{ .Title }}</h1>
+    <div class="content">
+      {{ .Content }}
+    </div>
+    <a href="https://lemmy.world/c/veganhomecooks" target="_blank" rel="noopener" class="button is-primary mb-5">
+      <i class="fas fa-external-link-alt pr-2"></i> Subscribe / post on Lemmy
+    </a>
+
+    {{ $feedURL := "https://lemmy.world/feeds/c/veganhomecooks.xml?sort=Active" }}
+    {{ $cacheKey := printf "%s#%s" $feedURL (now.Format "2006-01-02-15") }}
+    {{ $opts := dict "key" $cacheKey "headers" (dict "User-Agent" (slice "VeganHomeCooksSite/1.0 (+https://veganhomecooks.online)")) }}
+    {{ $resource := resources.GetRemote $feedURL $opts }}
+
+    {{ if not $resource }}
+      <div class="notification is-warning">
+        Couldn't reach Lemmy while building the site. <a href="https://lemmy.world/c/veganhomecooks" target="_blank" rel="noopener">View the community directly →</a>
+      </div>
+    {{ else if $resource.Err }}
+      {{ warnf "lemmy feed fetch error: %s" $resource.Err }}
+      <div class="notification is-warning">
+        Couldn't reach Lemmy while building the site. <a href="https://lemmy.world/c/veganhomecooks" target="_blank" rel="noopener">View the community directly →</a>
+      </div>
+    {{ else }}
+      {{ $data := $resource.Content | transform.Unmarshal (dict "format" "xml") }}
+      {{ $items := $data.channel.item }}
+      {{ if not (reflect.IsSlice $items) }}
+        {{ $items = slice $items }}
+      {{ end }}
+
+      {{ $defaultImage := .Site.Params.front.defaultImage | absURL }}
+      <div class="columns is-multiline">
+        {{ range first 12 $items }}
+          {{ $item := . }}
+
+          {{/* -- pick the best available image -- */}}
+          {{ $img := "" }}
+          {{ with $item.content }}
+            {{ $img = index . "-url" }}
+          {{ end }}
+          {{ if and (eq $img "") $item.enclosure }}
+            {{ $type := index $item.enclosure "-type" }}
+            {{ if strings.HasPrefix $type "image/" }}
+              {{ $img = index $item.enclosure "-url" }}
+            {{ end }}
+          {{ end }}
+          {{ if eq $img "" }}
+            {{ $found := findRE `<img[^>]+src="([^"]+)"` $item.description }}
+            {{ if $found }}
+              {{ $img = index (findRE `src="([^"]+)"` (index $found 0)) 0 }}
+              {{ $img = strings.TrimPrefix `src="` $img }}
+              {{ $img = strings.TrimSuffix `"` $img }}
+            {{ end }}
+          {{ end }}
+          {{ if eq $img "" }}
+            {{ $img = $defaultImage }}
+          {{ end }}
+
+          {{/* -- clean excerpt: keep only real <p> body paragraphs, drop bare-link previews -- */}}
+          {{ $paras := findRE `(?s)<p>.*?</p>` $item.description }}
+          {{ $clean := slice }}
+          {{ range $paras }}
+            {{ $plain := strings.Trim (plainify .) " \n\t\r" }}
+            {{ if and (ne $plain "") (not (findRE `^https?://\S+$` $plain)) }}
+              {{ $clean = $clean | append $plain }}
+            {{ end }}
+          {{ end }}
+          {{ $snippet := delimit $clean " " | truncate 200 }}
+
+          {{/* -- author handle from the dc:creator URL -- */}}
+          {{ $authorParts := split $item.creator "/" }}
+          {{ $authorName := index $authorParts (sub (len $authorParts) 1) }}
+          {{ $authorHost := "" }}
+          {{ if ge (len $authorParts) 3 }}{{ $authorHost = index $authorParts 2 }}{{ end }}
+
+          {{/* -- pubDate, normalized for Go's parser -- */}}
+          {{/* pubDate looks like "Fri, 3 Jul 2026 02:58:10 +0000" - split rather than
+               time.AsTime so one oddly-formatted date can never fail the whole build */}}
+          {{ $dateStr := "" }}
+          {{ with $item.pubDate }}
+            {{ $parts := split . " " }}
+            {{ if ge (len $parts) 4 }}
+              {{ $dateStr = printf "%s %s, %s" (index $parts 2) (index $parts 1) (index $parts 3) }}
+            {{ end }}
+          {{ end }}
+
+          <div class="column is-one-quarter">
+            <div class="card" style="border-radius: 1%; height: 100%;">
+              <div class="card-image">
+                <a href="{{ $item.link }}" target="_blank" rel="noopener">
+                  <figure class="image is-4by3">
+                    <img style="border-radius: 3%; object-fit: cover;" src="{{ $img }}" alt="">
+                  </figure>
+                </a>
+              </div>
+              <div class="card-content">
+                <div class="media-content">
+                  <p class="title is-5 has-text-centered">
+                    <a href="{{ $item.link }}" target="_blank" rel="noopener">{{ $item.title }}</a>
+                  </p>
+                  <p class="subtitle is-6 has-text-centered">
+                    <em>{{ $authorName }}{{ with $authorHost }}@{{ . }}{{ end }}{{ with $dateStr }} · {{ . }}{{ end }}</em>
+                  </p>
+                </div>
+                {{ with $snippet }}
+                  <div class="content"><p class="is-small">{{ . }}</p></div>
+                {{ end }}
+              </div>
+              <div class="card-footer">
+                <a href="{{ $item.link }}" target="_blank" rel="noopener" class="card-footer-item button is-primary">
+                  View &amp; comment on Lemmy
+                </a>
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
