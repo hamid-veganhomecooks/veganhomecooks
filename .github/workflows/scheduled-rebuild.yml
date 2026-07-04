@@ -1,0 +1,28 @@
+# Save this file as: .github/workflows/scheduled-rebuild.yml
+#
+# Cloudflare Pages only fetches the Lemmy feed when the site rebuilds, so this
+# pings your Cloudflare Pages "Deploy Hook" once a day to keep the
+# Community Feed page reasonably fresh without you needing to push a commit.
+#
+# Setup:
+# 1. In the Cloudflare dashboard: Workers & Pages -> your project -> Settings
+#    -> Builds & deployments -> Deploy hooks -> create one (any branch, e.g. main).
+# 2. Copy the generated URL.
+# 3. In your GitHub repo: Settings -> Secrets and variables -> Actions -> New
+#    repository secret, name it CF_DEPLOY_HOOK_URL, paste the URL as the value.
+# 4. Commit this file. Adjust the cron schedule below if you want it more or
+#    less frequent (this default is once a day, at 06:00 UTC).
+
+name: Scheduled rebuild for Lemmy feed
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  trigger-rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Cloudflare Pages deploy hook
+        run: curl -X POST "${{ secrets.CF_DEPLOY_HOOK_URL }}"
