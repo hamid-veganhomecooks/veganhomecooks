@@ -27,6 +27,8 @@
           {{ $items = slice $items }}
         {{ end }}
 
+        <p class="has-text-grey is-size-7 mb-4">Last synced from Lemmy: {{ now.Format "Jan 2, 2006" }}</p>
+
         <div class="columns is-multiline">
           {{ range first 12 $items }}
             {{ $item := . }}
@@ -87,7 +89,7 @@
                 <div class="card-image">
                   <a href="{{ $item.link }}" target="_blank" rel="noopener">
                     <figure class="image is-4by3">
-                      <img style="border-radius: 3%; object-fit: cover;" src="{{ $img }}" alt="">
+                      <img style="border-radius: 3%; object-fit: cover;" src="{{ $img }}" alt="{{ $item.title }}" loading="lazy">
                     </figure>
                   </a>
                 </div>
