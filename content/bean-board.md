@@ -2,6 +2,8 @@
 title: "Bean Board"
 layout: "bean-board"
 outputs: ["html"]
+build:
+  list: never
 ---
 
 Every time someone joins our [Discord](https://discord.gg/DBXGfxweAr), we ask the

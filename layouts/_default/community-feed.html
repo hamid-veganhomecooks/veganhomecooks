@@ -30,7 +30,7 @@
         <p class="has-text-grey is-size-7 mb-4">Last synced from Lemmy: {{ now.Format "Jan 2, 2006" }}</p>
 
         <div class="columns is-multiline">
-          {{ range first 12 $items }}
+          {{ range first 20 $items }}
             {{ $item := . }}
 
             {{/* -- pick the best available image -- */}}

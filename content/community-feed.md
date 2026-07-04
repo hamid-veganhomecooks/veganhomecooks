@@ -2,6 +2,8 @@
 title: "Community Feed"
 layout: "community-feed"
 outputs: ["html"]
+build:
+  list: never
 ---
 
 Fresh posts straight from our [Lemmy community](https://lemmy.world/c/veganhomecooks) —
