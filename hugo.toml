@@ -37,6 +37,11 @@ fileName = "/images/favicon.png" #your favicon here if you wish to change it.
     pre = "fas fa-seedling"
     url = "/bean-board/"
     weight = 3
+  [[menu.main]]
+    name = "Community Feed"
+    pre = "fas fa-comments"
+    url = "/community-feed/"
+    weight = 4
 
 # Print output just creates a special route for a print view
 [outputs]
@@ -55,3 +60,8 @@ fileName = "/images/favicon.png" #your favicon here if you wish to change it.
     noUgly = true
     permalinkable = true
     path = "print"
+# Allowlist lemmy.world's RSS feed so resources.GetRemote is permitted to fetch it
+# at build time (used by the Community Feed page).
+[security]
+  [security.http]
+    urls = ['^https://lemmy\.world/feeds/']
