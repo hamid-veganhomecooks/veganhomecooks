@@ -423,3 +423,5 @@
   bean: "Roman Bean"
 - name: "db"
   bean: "Beluga Lentil"
+- name: "Alliegaytor"
+  bean: "Gigantes Bean"
