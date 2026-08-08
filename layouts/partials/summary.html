@@ -2,9 +2,9 @@
     <div class="card-image">
         <figure class="image is-4by3">
         {{ if $.Params.Recipe_image }}
-            <img style="border-radius: 3%;" src="{{ $.Params.Recipe_image }}" alt="Placeholder image">
+            <img style="border-radius: 3%; object-fit: cover; object-position: center;" src="{{ $.Params.Recipe_image }}" alt="{{ $.Title }}">
         {{ else }}
-            <img style="border-radius: 3%;" src="{{ $.Site.Params.front.defaultImage | absURL }}" alt="Placeholder image">
+            <img style="border-radius: 3%; object-fit: contain;" src="{{ $.Site.Params.front.defaultImage | absURL }}" alt="Placeholder image">
         {{ end }}
         </figure>
     </div>

@@ -1,0 +1,18 @@
+/* This file overrides themes/hugo-cookbook/static/css/custom.css.
+   The rules below the "theme rules" marker are copied from the theme so
+   they aren't lost by shadowing it — keep them in sync if the theme changes. */
+
+/* Bulma's .image.is-4by3 pins the <img> to width:100%;height:100% inside a
+   fixed-ratio box but sets no object-fit, so photos are distorted to fit.
+   Crop them to the ratio instead. Covers the search-results cards, which are
+   rendered by a theme partial we don't override. */
+.card .image.is-4by3 img {
+    object-fit: cover;
+    object-position: center;
+}
+
+/* --- theme rules --- */
+li {
+    padding-bottom: .5em;
+    font-size: 20px;
+}
