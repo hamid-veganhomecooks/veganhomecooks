@@ -2,6 +2,7 @@
 title: "Hamid's Pancakes"
 date: 2023-01-01
 author: "hamid"
+description: "Whole wheat flour vegan pancake recipe that Hamid has made every saturday for the past 10 years" 
 tags: ["pancake", "breakfast"]
 recipe_image: "/images/hamid-pancakes.jpg"
 ---
