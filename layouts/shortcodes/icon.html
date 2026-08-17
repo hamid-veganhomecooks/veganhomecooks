@@ -15,7 +15,11 @@
   {{- errorf "icon shortcode: %s not found (called from %s)" $path .Page.File.Path -}}
 {{- end -}}
 {{- $svg := readFile $path -}}
-{{- $attrs := printf `<svg class="social-icon" fill=%q aria-hidden="true" focusable="false" ` $color -}}
+{{- /* width/height are set as attributes, not left to CSS alone: an inline SVG
+       with only a viewBox expands to fill its container, so a visitor holding a
+       cached copy of custom.css from before .social-icon existed would get a
+       full-width icon. Presentation attributes still lose to the stylesheet. */ -}}
+{{- $attrs := printf `<svg class="social-icon" width="1em" height="1em" fill=%q aria-hidden="true" focusable="false" ` $color -}}
 {{- $svg = replaceRE `^<svg ` $attrs $svg -}}
 {{- $svg = replaceRE ` role="img"` "" $svg -}}
 {{- $svg | safeHTML -}}
