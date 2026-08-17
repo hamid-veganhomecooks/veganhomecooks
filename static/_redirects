@@ -1,0 +1,12 @@
+# Cloudflare Pages redirect rules.
+#
+# Only the WebFinger line below is needed for ActivityPub. It exists so the
+# handle can stay @veganhomecooks@veganhomecooks.online while the Worker itself
+# lives on ap.veganhomecooks.online: a fediverse server looking up that handle
+# asks the *bare* domain for /.well-known/webfinger, which Pages serves, so the
+# request has to be forwarded to the Worker. Query strings are preserved.
+#
+# If this repo already has a static/_redirects file, append this line to it
+# rather than replacing the file.
+
+/.well-known/webfinger  https://ap.veganhomecooks.online/.well-known/webfinger  302

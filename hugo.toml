@@ -46,6 +46,7 @@ fileName = "/images/favicon.png" #your favicon here if you wish to change it.
 # Print output just creates a special route for a print view
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "JSON"]
   page = ["HTML", "PRINT"]
 
 # The settings for the print format

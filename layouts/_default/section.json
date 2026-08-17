@@ -1,0 +1,40 @@
+{{- /*
+  JSON recipe index consumed by the ActivityPub Worker.
+
+  Emitted at /recipes/index.json because hugo.toml sets
+  [outputs] section = ["HTML", "JSON"]. Drafts and future-dated pages are
+  already excluded from .Pages, so anything listed here is genuinely live.
+
+  The Worker diffs this against its own database on every sync, so the fields
+  below determine what a follower sees, and a change to any of them is what
+  triggers an Update activity.
+*/ -}}
+{{- $entries := slice -}}
+{{- range .Pages -}}
+  {{- $summary := "" -}}
+  {{- with .Description -}}
+    {{- $summary = . -}}
+  {{- else -}}
+    {{- $summary = .Summary | plainify -}}
+  {{- end -}}
+  {{- /* htmlUnescape must come last: truncate re-encodes entities, so
+         unescaping any earlier leaves "&amp;" in the output. */ -}}
+  {{- $summary = $summary | chomp | truncate 300 | htmlUnescape -}}
+
+  {{- $image := "" -}}
+  {{- with .Params.recipe_image -}}
+    {{- $image = . | absURL -}}
+  {{- end -}}
+
+  {{- $entries = $entries | append (dict
+    "slug"      .File.ContentBaseName
+    "title"     .Title
+    "url"       .Permalink
+    "summary"   $summary
+    "published" (.Date.Format "2006-01-02T15:04:05Z07:00")
+    "image"     $image
+    "author"    (default "" .Params.author)
+    "tags"      (default (slice) .Params.tags)
+  ) -}}
+{{- end -}}
+{{- $entries | jsonify (dict "indent" "  ") -}}
