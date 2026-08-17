@@ -15,6 +15,15 @@
     object-fit: contain;
 }
 
+/* Icons inlined by the "icon" shortcode. Sized in em so they track the text
+   they sit next to, and nudged down to line up with the lowercase x-height. */
+.social-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    margin-right: 0.4em;
+}
+
 /* --- theme rules --- */
 li {
     padding-bottom: .5em;

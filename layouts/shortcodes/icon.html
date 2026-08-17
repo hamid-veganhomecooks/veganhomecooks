@@ -1,0 +1,21 @@
+{{- /*
+  Inlines one of the SVGs in static/images/icons/ so it can be coloured by CSS.
+
+  Usage:  {{< icon discord >}}                 inherits the surrounding text colour
+          {{< icon discord "#5865F2" >}}       forces the brand colour
+
+  The icons come from simple-icons (CC0), copied locally so the site makes no
+  requests to a third-party CDN. To add one: download the SVG from
+  https://simpleicons.org into static/images/icons/<slug>.svg
+*/ -}}
+{{- $name := .Get 0 -}}
+{{- $color := .Get 1 | default "currentColor" -}}
+{{- $path := printf "static/images/icons/%s.svg" $name -}}
+{{- if not (fileExists $path) -}}
+  {{- errorf "icon shortcode: %s not found (called from %s)" $path .Page.File.Path -}}
+{{- end -}}
+{{- $svg := readFile $path -}}
+{{- $attrs := printf `<svg class="social-icon" fill=%q aria-hidden="true" focusable="false" ` $color -}}
+{{- $svg = replaceRE `^<svg ` $attrs $svg -}}
+{{- $svg = replaceRE ` role="img"` "" $svg -}}
+{{- $svg | safeHTML -}}

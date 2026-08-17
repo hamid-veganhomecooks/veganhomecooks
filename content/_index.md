@@ -6,7 +6,7 @@ Welcome to the **Vegan Home Cooks** community cookbook! These recipes come strai
 
 Come join the conversation and share your own creations:
 
-- 💬 **Discord** — [Join our chat](https://discord.gg/DBXGfxweAr) for live discussion, tips, and recipe sharing
-- 🌐 **Lemmy** — Our show and tell community [lemmy.world/c/veganhomecooks](https://lemmy.world/c/veganhomecooks)
-- 🐘 **Mastodon** — Follow @veganhomecooks@veganhomecooks.online to be notified when we post new recipes! 
-- 🤝 **Reddit** — Find us at [r/veganhomecooks](https://reddit.com/r/veganhomecooks)
+- {{< icon discord >}} **Discord** — [Join our chat](https://discord.gg/DBXGfxweAr) for live discussion, tips, and recipe sharing
+- {{< icon lemmy >}} **Lemmy** — Our show and tell community [lemmy.world/c/veganhomecooks](https://lemmy.world/c/veganhomecooks)
+- {{< icon mastodon >}} **Mastodon** — Follow @veganhomecooks@veganhomecooks.online to be notified when we post new recipes!
+- {{< icon reddit >}} **Reddit** — Find us at [r/veganhomecooks](https://reddit.com/r/veganhomecooks)
