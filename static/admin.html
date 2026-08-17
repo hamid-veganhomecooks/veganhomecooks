@@ -76,6 +76,9 @@
       <label>Title *
         <input type="text" id="title" required placeholder="e.g. Smoky Black Bean Tacos" />
       </label>
+      <label>Short Description
+        <input type="text" id="description" maxlength="300" placeholder="One line shown in fediverse timelines and recipe cards" />
+      </label>
       <label>Date *
         <input type="date" id="date" required />
       </label>
@@ -139,6 +142,7 @@
 
       const formData = new FormData();
       formData.append("title", document.getElementById("title").value);
+      formData.append("description", document.getElementById("description").value);
       formData.append("date", document.getElementById("date").value);
       formData.append("author", document.getElementById("author").value);
       formData.append("tags", document.getElementById("tags").value);
