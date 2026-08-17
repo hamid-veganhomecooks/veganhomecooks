@@ -2,6 +2,7 @@
 title: "Uta Bolognese"
 date: 2026-03-24
 author: "Uta"
+description: "A rich TVP bolognese with soffritto, red wine and passata."
 tags: ["pasta sauce", "uta"]
 recipe_image: "https://assets.veganhomecooks.online/recipe-images/1782611480470-PXL_20260324_101439860.RAW-01.MP.jpg"
 ---
