@@ -2,6 +2,7 @@
 title: "Lentil Tempeh"
 date: 2026-01-07
 author: "Beanmilker"
+description: "Brown lentils fermented into tempeh over two days in an oven with the light on, with notes on keeping the temperature under 95F."
 tags: ["tempeh", "fermented", "lentils", "protein"]
 recipe_image: "/images/lentil-tempeh-1.jpg"
 ---

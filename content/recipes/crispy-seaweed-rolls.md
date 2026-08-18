@@ -2,6 +2,7 @@
 title: "Crispy Seaweed Rolls"
 date: 2026-06-29
 author: "bulbasaur, 𑂐ꚳ㎰ꪭ"
+description: "Nori seasoned with sesame, paprika and hempseed parm, wrapped in rice paper and cut into rings that crisp up in the air fryer."
 tags: []
 recipe_image: "https://assets.veganhomecooks.online/recipe-images/1782695444670-IMG_20260628_1614413133.jpg"
 ---

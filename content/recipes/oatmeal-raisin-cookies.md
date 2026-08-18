@@ -2,6 +2,7 @@
 title: "Oatmeal raisin cookies"
 date: 2026-06-16
 author: "𑂐ꚳ㎰ꪭ"
+description: "Almond and oat cookies bound with flax and sweetened with date syrup, flexible enough to take whatever mixins you have around."
 tags: ["cookies", "oatmeal"]
 recipe_image: "https://assets.veganhomecooks.online/recipe-images/1782521581380-IMG_20260616_2110514383.jpg"
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Persian Rice"
 date: 2023-10-29
+description: "Parboiled basmati steamed in a covered pot until the bottom becomes crisp tadig, with sabzi, addas and gojeh variations."
 draft: false
 ---
 

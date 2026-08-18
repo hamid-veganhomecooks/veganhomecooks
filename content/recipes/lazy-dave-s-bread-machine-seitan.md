@@ -2,6 +2,7 @@
 title: "Lazy Dave's Bread Machine Seitan"
 date: 2026-04-05
 author: "bulbasaur "
+description: "Turkey-flavored seitan made by dumping the wet and dry ingredients into a bread machine and pressing start."
 tags: ["seitan", "bread machine"]
 recipe_image: "https://assets.veganhomecooks.online/recipe-images/1782611348095-20260329_225935.jpg"
 ---

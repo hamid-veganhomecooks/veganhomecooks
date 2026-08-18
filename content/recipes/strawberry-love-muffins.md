@@ -2,6 +2,7 @@
 title: "Strawberry Love Muffins"
 date: 2024-01-01
 author: "madi/hamid"
+description: "Twelve fresh strawberry muffins from a simple lemon juice and plant milk batter."
 tags: ["baking", "breakfast", "muffins"]
 servings: 12
 prepTime: "15 minutes"

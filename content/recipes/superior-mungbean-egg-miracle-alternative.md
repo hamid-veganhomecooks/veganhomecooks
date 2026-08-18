@@ -2,6 +2,7 @@
 title: "Superior Mungbean EGG Miracle Alternative"
 date: 2023-11-10
 author: "tayto, soupisgoodfood"
+description: "Soaked moong dal blended with kala namak and chickpea flour into a pourable batter for omelettes, or a binder for everything else."
 tags: ["smeggma", "smeggs", "just egg", "omelette"]
 recipe_image: "https://assets.veganhomecooks.online/recipe-images/1782773700632-vegan-egg-moong-dal-omelette-2020121919091692679791ungq.jpg"
 ---

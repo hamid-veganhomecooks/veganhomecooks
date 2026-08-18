@@ -2,6 +2,7 @@
 title: "Oil-Free Whole Wheat Bread Machine Loaf"
 date: 2026-07-01
 author: "Hamid"
+description: "An oil-free bread machine loaf that uses applesauce for moisture and a cup of all-purpose flour for a reliable rise."
 tags: ["bread", "bread machine", "whole wheat"]
 recipe_image: "https://assets.veganhomecooks.online/recipe-images/1782869085681-cee5fc4e-8cd6-4964-a2c0-bc7f7251dce4_0248b415d503870eb1eda72c95d13e50ca525cda.png"
 ---

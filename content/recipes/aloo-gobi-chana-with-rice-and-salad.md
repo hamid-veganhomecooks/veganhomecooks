@@ -2,6 +2,7 @@
 title: "Aloo Gobi Chana with Rice and salad"
 date: 2026-06-24
 author: "Hamid"
+description: "A weeknight potato, cauliflower and chickpea curry cooked by vibes rather than measurements, timed to be ready when the rice cooker is."
 tags: ["indian", "quick", "potato", "cauliflower", "chickpea"]
 recipe_image: "https://assets.veganhomecooks.online/recipe-images/1782517828473-IMG_4217.jpg"
 ---

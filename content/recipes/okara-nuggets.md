@@ -2,6 +2,7 @@
 title: "Okara Nuggets"
 date: 2026-02-19
 author: "comrade bulba"
+description: "Nuggets made from leftover okara and vital wheat gluten, baked once to set and then air fried, pan fried or panko-crusted."
 tags: ["seitan", "nuggets", "okara", "protein"]
 recipe_image: "/images/okara-nuggets.jpg"
 ---

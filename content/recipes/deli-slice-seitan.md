@@ -2,6 +2,7 @@
 title: "Deli Slice Seitan"
 date: 2026-03-08
 author: "ashleigh"
+description: "A tofu and vital wheat gluten log baked in foil and chilled overnight, seasoned for either ham or turkey and sliced thin for sandwiches."
 tags: ["seitan"]
 recipe_image: "/images/ashleigh-seitan.jpg"
 ---

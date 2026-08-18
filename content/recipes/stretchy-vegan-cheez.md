@@ -2,6 +2,7 @@
 title: "Stretchy vegan cheez"
 date: 2026-05-13
 author: "posted by: mmori, pic by: skrimem"
+description: "Five ingredients whisked together and poured over pizza or quesadillas, where the tapioca starch sets into a stretchy melt as it heats."
 tags: ["Cheese", "stretch", "tapioca"]
 recipe_image: "https://assets.veganhomecooks.online/recipe-images/1782567818838-IMG_4480.jpg"
 ---

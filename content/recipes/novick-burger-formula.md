@@ -2,6 +2,7 @@
 title: "Novick Burger Formula"
 date: 2025-08-15
 author: "Jeff Novick + VHC Community"
+description: "Jeff Novick's bean burger formula: a can of beans, oats, a cooked starch, a tomato product and whatever spices you feel like."
 tags: ["burgers"]
 recipe_image: "/images/burgers-and-fries.png"
 ---

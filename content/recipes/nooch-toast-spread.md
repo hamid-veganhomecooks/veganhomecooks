@@ -2,6 +2,7 @@
 title: "Nooch Toast Spread"
 date: 2026-07-31
 author: "𑂐ꚳ㎰ꪭ"
+description: "A hemp heart and nutritional yeast spread that turns nutty and savory once it is toasted on bread."
 tags: ["nooch", "spread"]
 recipe_image: "https://assets.veganhomecooks.online/recipe-images/1786199486579-IMG_20260802_0843426283.jpg"
 ---

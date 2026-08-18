@@ -2,6 +2,7 @@
 title: "Thai Curry Stew"
 date: 2026-06-14
 author: "BCsven"
+description: "A one-pan Thai red curry stew of tofu and peppers, thickened at the end with a little cornstarch and a dollop of vegan butter."
 tags: ["thai", "curry"]
 recipe_image: "https://assets.veganhomecooks.online/recipe-images/1782525375745-a6844e8c-ba0f-4034-91b9-b3c458954b59.webp"
 ---

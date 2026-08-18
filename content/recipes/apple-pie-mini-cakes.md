@@ -2,6 +2,7 @@
 title: "Javant's Apple Cakes"
 date: 2026-01-01
 author: "Javant Benton"
+description: "Oil-free oat and almond flour cakes with a well of stovetop apple pie filling in the middle and a date caramel drizzle."
 tags: ["baking", "dessert", "apples", "oil-free", "gluten-free"]
 recipe_image: "/images/javants-apple-cakes.jpeg"
 ---
