@@ -42,11 +42,16 @@ fileName = "/images/favicon.png" #your favicon here if you wish to change it.
     pre = "fas fa-comments"
     url = "/community-feed/"
     weight = 4
+  [[menu.main]]
+    name = "Subscribe"
+    pre = "fas fa-rss"
+    url = "/index.xml"
+    weight = 5
 
 # Print output just creates a special route for a print view
 [outputs]
   home = ["HTML", "RSS", "JSON"]
-  section = ["HTML", "JSON"]
+  section = ["HTML", "RSS", "JSON"]
   page = ["HTML", "PRINT"]
 
 # The settings for the print format
@@ -61,6 +66,11 @@ fileName = "/images/favicon.png" #your favicon here if you wish to change it.
     noUgly = true
     permalinkable = true
     path = "print"
+# Number of items in each RSS feed. -1 means "every page".
+[services]
+  [services.rss]
+    limit = 50
+
 # Allowlist lemmy.world's RSS feed so resources.GetRemote is permitted to fetch it
 # at build time (used by the Community Feed page).
 [security]

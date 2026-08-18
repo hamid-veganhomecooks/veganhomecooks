@@ -1,0 +1,67 @@
+{{- /*
+  Custom RSS feed for Vegan Home Cooks.
+
+  Differences from Hugo's built-in feed:
+    - the recipe photo is included, both as <media:content> (readers that show
+      thumbnails) and as an <img> at the top of the description (everyone else)
+    - <dc:creator> carries the recipe author, <category> carries each tag
+    - the description is the full recipe, so it can be read without leaving
+      the reader
+*/ -}}
+{{- $pctx := . -}}
+{{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+{{- $pages := $pctx.Pages -}}
+{{- if or .IsHome .IsSection -}}{{ $pages = $pctx.RegularPages }}{{- end -}}
+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}{{ $pages = $pages | first $limit }}{{- end -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ with .Site.Params.description }}{{ . }}{{ else }}Recent content on {{ .Site.Title }}{{ end }}</description>
+    <generator>Hugo</generator>
+    <language>{{ .Site.LanguageCode }}</language>
+    {{- with .Site.Params.author }}
+    <managingEditor>{{ . }}</managingEditor>
+    <webMaster>{{ . }}</webMaster>
+    {{- end }}
+    <copyright>{{ now.Format "2006" }} {{ .Site.Title }}</copyright>
+    {{- with .Site.Params.logo.fileName }}
+    <image>
+      <url>{{ . | absURL }}</url>
+      <title>{{ $.Site.Title }}</title>
+      <link>{{ $.Site.Home.Permalink }}</link>
+    </image>
+    {{- end }}
+    {{- with $pages }}
+    <lastBuildDate>{{ (index . 0).Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
+    {{- end }}
+    {{ with .OutputFormats.Get "rss" -}}
+    {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType.Type | safeHTML }}
+    {{- end }}
+    {{- range $pages }}
+    {{- $img := "" }}
+    {{- with .Params.recipe_image }}{{ $img = . | absURL }}{{ end }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      <guid isPermaLink="true">{{ .Permalink }}</guid>
+      {{- with .Params.author }}
+      <dc:creator>{{ . }}</dc:creator>
+      {{- end }}
+      {{- range .Params.tags }}
+      <category>{{ . }}</category>
+      {{- end }}
+      {{- with $img }}
+      <media:content url="{{ . }}" medium="image" />
+      {{- end }}
+      <description>{{ with $img }}{{ printf "<p><img src=%q alt=\"\" /></p>" . }}{{ end }}{{ .Content | transform.XMLEscape | safeHTML }}</description>
+    </item>
+    {{- end }}
+  </channel>
+</rss>
