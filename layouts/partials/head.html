@@ -3,7 +3,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     <link rel="stylesheet" type="text/css" href="/css/bulma.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    {{/* Fingerprinted: the filename carries a hash of the contents, so editing
+         custom.css publishes it at a new URL. Cloudflare Pages caches static
+         assets in the browser for 4 hours (max-age=14400) while HTML is always
+         revalidated, so without this a returning visitor gets new HTML with a
+         stale stylesheet until that expires. */}}
+    {{ $custom := resources.Get "css/custom.css" | fingerprint "sha256" -}}
+    <link rel="stylesheet" type="text/css" href="{{ $custom.RelPermalink }}">
     <script src="https://kit.fontawesome.com/b7002cebe4.js" crossorigin="anonymous"></script>
     {{ $title := print .Site.Title " | " .Title }}
     {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}

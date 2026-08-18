@@ -29,3 +29,83 @@ li {
     padding-bottom: .5em;
     font-size: 20px;
 }
+
+/* Bulma stops collapsing the navbar into the burger at 1024px, but with the
+   logo, five links and the search box this row needs ~1275px to lay out at
+   full size. In between, Bulma's `flex-shrink: 0` means the row cannot tighten
+   up, so the search box is pushed off the right edge. Fix: let the row shrink,
+   and in that band trim the logo, link padding and link font enough to buy
+   back the ~120px shortfall, so every link stays visible and nothing clips. */
+@media screen and (min-width: 1024px) {
+    .navbar-menu {
+        flex-shrink: 1;
+        min-width: 0;
+    }
+
+    /* Flex children default to min-width:auto, which refuses to shrink below
+       their content width. Unset it along the chain wrapping the search field
+       so the input is what gives up space. Deliberately NOT applied to
+       .navbar-start: letting that shrink makes the links clip instead. */
+    .navbar-end,
+    .navbar-end .navbar-item,
+    .navbar-end .field,
+    .navbar-end .control {
+        min-width: 0;
+    }
+
+    /* Bulma also sets flex-shrink:0 on .navbar-item, so the item holding the
+       search field kept its full width and spilled left over the links. */
+    .navbar-end .navbar-item {
+        flex-shrink: 1;
+    }
+
+    .navbar-end .control:has(#searchTerm) {
+        flex: 1 1 auto;
+    }
+
+    #searchTerm {
+        width: 100%;
+        min-width: 5rem;
+    }
+
+    /* Keep links on one line as the row tightens. */
+    .navbar-start .navbar-item {
+        white-space: nowrap;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1299px) {
+    .navbar-start .navbar-item {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .navbar-brand img {
+        height: 34px;
+        width: auto;
+    }
+
+    /* Bulma's has-addons control holding the Search button will not shrink, so
+       give the input an explicit width here rather than relying on flex to
+       squeeze it; at 1300px and up it goes back to its natural size. */
+    #searchTerm {
+        width: 8rem;
+        min-width: 0;
+    }
+}
+
+/* A fediverse handle is one unbreakable token, so on a phone it pushed the
+   page wider than the screen and produced a horizontal scrollbar. Let long
+   links break instead. Kept as the full handle rather than shortened so it
+   can still be copied and pasted into someone's own instance to follow. */
+.content a {
+    overflow-wrap: anywhere;
+}
+
+/* 20px list text is oversized on a phone and makes long lines wrap awkwardly. */
+@media screen and (max-width: 480px) {
+    li {
+        font-size: 17px;
+    }
+}

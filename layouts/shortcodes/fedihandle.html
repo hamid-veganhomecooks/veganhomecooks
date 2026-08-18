@@ -1,0 +1,11 @@
+{{- /* Renders a fediverse handle as a link that may break between the user
+       part and the domain part, instead of wrapping mid-word on narrow
+       screens. <wbr> is a break opportunity only: it copies as nothing, so
+       the handle can still be pasted into an instance's search box to follow.
+       Usage: {{< fedihandle handle="@user@example.social" url="https://..." >}} */ -}}
+{{- $handle := strings.TrimPrefix "@" (.Get "handle") -}}
+{{- $parts := split $handle "@" -}}
+{{- if ne (len $parts) 2 -}}
+  {{- errorf "fedihandle: %q is not a user@domain handle (called from %s)" (.Get "handle") .Position -}}
+{{- end -}}
+<a href="{{ .Get "url" }}">@{{ index $parts 0 }}<wbr>@{{ index $parts 1 }}</a>
