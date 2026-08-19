@@ -1,0 +1,35 @@
+{{- /*
+  Renders a call to action carrying the live fediverse follower count, fetched
+  from the ActivityPub Worker at build time.
+
+  Usage:  {{< follower-count >}} {{< fedihandle handle="..." url="..." >}}
+  Gives:  "Join the 7 people following @user@example.online"
+  Or:     "Follow @user@example.online"
+
+  The fallback matters. The count is only as fresh as the last build, and the
+  fetch can fail, so this degrades to plain "Follow" rather than emitting a
+  sentence with a hole in it. It also falls back below two followers, where
+  "join the 1 people" would read worse than no count at all.
+
+  Two things this depends on:
+    1. hugo.toml must allow the host under [security.http] urls, or the fetch is
+       blocked and this silently renders the fallback forever.
+    2. /ap/stats serves plain application/json on purpose. The ActivityPub
+       followers collection cannot be used here: Hugo will not resolve
+       application/activity+json as a media type, and it lists every follower's
+       account URI rather than just a count.
+*/ -}}
+{{- $url := "https://ap.veganhomecooks.online/ap/stats" -}}
+{{- $count := 0 -}}
+{{- with try (resources.GetRemote $url) -}}
+  {{- with .Err -}}
+    {{- warnf "follower-count: %s (falling back to %q)" . "Follow" -}}
+  {{- else with .Value -}}
+    {{- $count = (unmarshal .Content).followers | default 0 -}}
+  {{- end -}}
+{{- end -}}
+{{- if ge $count 2 -}}
+Join the {{ $count }} people following
+{{- else -}}
+Follow
+{{- end -}}
