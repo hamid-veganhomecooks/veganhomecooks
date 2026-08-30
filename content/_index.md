@@ -10,3 +10,4 @@ Come join the conversation and share your own creations:
 - {{< icon lemmy >}} **Lemmy** — Our show and tell community [lemmy.world/c/veganhomecooks](https://lemmy.world/c/veganhomecooks)
 - {{< icon mastodon >}} **Mastodon** — {{< follower-count >}} {{< fedihandle handle="@veganhomecooks@veganhomecooks.online" url="https://ap.veganhomecooks.online/users/veganhomecooks" >}} for recipes!
 - {{< icon reddit >}} **Reddit** — Find us at [r/veganhomecooks](https://reddit.com/r/veganhomecooks)
+- {{< icon rss >}} **RSS** — [Subscribe to the feed](/index.xml) to get new recipes in your reader

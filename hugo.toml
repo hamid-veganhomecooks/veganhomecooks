@@ -42,11 +42,6 @@ fileName = "/images/favicon.png" #your favicon here if you wish to change it.
     pre = "fas fa-comments"
     url = "/community-feed/"
     weight = 4
-  [[menu.main]]
-    name = "Subscribe"
-    pre = "fas fa-rss"
-    url = "/index.xml"
-    weight = 5
 
 # Print output just creates a special route for a print view
 [outputs]

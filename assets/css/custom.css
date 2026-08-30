@@ -30,12 +30,13 @@ li {
     font-size: 20px;
 }
 
-/* Bulma stops collapsing the navbar into the burger at 1024px, but with the
-   logo, five links and the search box this row needs ~1275px to lay out at
-   full size. In between, Bulma's `flex-shrink: 0` means the row cannot tighten
-   up, so the search box is pushed off the right edge. Fix: let the row shrink,
-   and in that band trim the logo, link padding and link font enough to buy
-   back the ~120px shortfall, so every link stays visible and nothing clips. */
+/* Bulma stops collapsing the navbar into the burger at 1024px, but the logo,
+   the links and the search box together need more room than that. Bulma's
+   `flex-shrink: 0` means the row cannot tighten up, so the search box is
+   pushed off the right edge. Fix: let the row shrink and have the search
+   input give up the space, so every link stays visible and nothing clips.
+   Deliberately nothing here resizes the logo — an earlier version shrank it
+   below 1300px, which made it visibly change size when crossing that width. */
 @media screen and (min-width: 1024px) {
     .navbar-menu {
         flex-shrink: 1;
@@ -71,27 +72,6 @@ li {
     /* Keep links on one line as the row tightens. */
     .navbar-start .navbar-item {
         white-space: nowrap;
-    }
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1299px) {
-    .navbar-start .navbar-item {
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        font-size: 0.9rem;
-    }
-
-    .navbar-brand img {
-        height: 34px;
-        width: auto;
-    }
-
-    /* Bulma's has-addons control holding the Search button will not shrink, so
-       give the input an explicit width here rather than relying on flex to
-       squeeze it; at 1300px and up it goes back to its natural size. */
-    #searchTerm {
-        width: 8rem;
-        min-width: 0;
     }
 }
 
